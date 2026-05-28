@@ -1,66 +1,90 @@
+/* ==========================================================================
+   MINIMALIST FOOTER COMPONENT ARCHITECTURE
+   ========================================================================== */
 .main-footer {
-  background: #000;
-  color: #fff;
+  background: #0f0f0f; /* Seamless dark void transition */
+  border-top: 1px solid #262626;
+  padding: 8rem 0 4rem 0;
+
   &__upper {
     display: flex;
     justify-content: space-between;
-    padding: 8rem 0;
+    align-items: flex-start;
+    margin-bottom: 6rem;
+
     @include respond(tab-port) {
-      padding: 6rem 0;
-    }
-    @include respond(phone) {
-      display: block;
+      flex-direction: column;
+      gap: 5rem;
+      margin-bottom: 4rem;
     }
   }
 
-  &__row-1 {
-    order: 2;
-    @include respond(tab-port) {
-      margin-bottom: 5rem;
-    }
-  }
+  // Left Side Column Layout Matrix (Brand Name & Short Info Paragraph)
   &__row-2 {
-    width: 40%;
-    order: 1;
-    max-width: 50rem;
-    @include respond(tab-port) {
-      width: 100%;
+    max-width: 44rem;
+
+    h4 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 1px;
     }
   }
 
   &__short-desc {
-    margin-top: 2rem;
-    color: #eee;
-    font-size: 1.5rem;
+    margin-top: 1.2rem;
+    font-size: 1.4rem;
+    color: #aaaaaa;
     line-height: 1.7;
   }
 
+  // Right Side Column Layout Matrix (Social Icon Tray Wrapper)
+  &__row-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @include respond(tab-port) {
+      align-items: flex-start;
+    }
+  }
+
   &__social-cont {
-    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem; /* Replaced rigid margin systems with an elastic layout gap */
   }
 
   &__icon {
-    margin-right: 1rem;
-    width: 2.5rem;
-    &--mr-none {
-      margin-right: 0;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: block;
+    filter: brightness(0) invert(1) opacity(0.4);
+    transition: opacity 0.25s ease, filter 0.25s ease;
+
+    &:hover {
+      opacity: 1;
+      filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5)) brightness(1); /* Ambient cyan tech glow */
     }
   }
 
+  // Bottom Copyright Strip Interface Rules
   &__lower {
-    padding: 4rem 0;
-    border-top: 1px solid #444;
-    color: #eee;
-    font-size: 1.2rem;
-    text-align: left;
     text-align: center;
+    font-size: 1.3rem;
+    color: #333333; /* Soft low-impact branding presence */
+    border-top: 1px solid #262626;
+    padding-top: 4rem;
+
     a {
-      text-decoration: underline;
-      font-weight: bold;
-      margin-left: 2px;
-    }
-    @include respond(tab-port) {
-      padding: 3.5rem 0;
+      color: #aaaaaa;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #ffffff;
+      }
     }
   }
 }
