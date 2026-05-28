@@ -1,16 +1,27 @@
+/* ==========================================================================
+   LUXURY NAVIGATION HEADER INTERFACE
+   ========================================================================== */
 .header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
-  background: #000;
-  background: #fff;
-  box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1);
+  background: rgba(15, 15, 15, 0.75); /* High-end semi-transparent dark glass */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid #262626;
+  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 5rem;
+    height: 8.5rem; /* Standardized uniform layout track height constraint */
+    max-width: 140rem;
+    margin: 0 auto;
+    padding: 0 4rem;
+
     @include respond(tab-port) {
       padding: 0 2rem;
     }
@@ -19,130 +30,120 @@
   &__logo-container {
     display: flex;
     align-items: center;
-    cursor: pointer;
-    color: #333;
-    transition: color .3s;
-
-    &:hover {
-      color: $themeClrPrimary;
-    }
+    text-decoration: none;
   }
+
   &__logo-img-cont {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50px;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%; /* Clean high-fidelity circle */
     overflow: hidden;
-    margin-right: 1.5rem;
-    background: $themeClrPrimary;
+    margin-right: 1.4rem;
+    background: #1a1a1a;
+    border: 1px solid #333333;
 
     @include respond(tab-port) {
-      width: 4.5rem;
-      height: 4.5rem;
+      width: 3.8rem;
+      height: 3.8rem;
       margin-right: 1.2rem;
     }
   }
+
   &__logo-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
     display: block;
   }
+
   &__logo-sub {
-    font-size: 1.8rem;
-    text-transform: uppercase;
+    font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: 1px;
+    color: #f0f0f0;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Wide-tracking fashion metric */
   }
+
+  &__main {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Desktop Desktop Link Array Track */
   &__links {
     display: flex;
-    @include respond(phone) {
-      display: none;
+    align-items: center;
+    gap: 1.5rem;
+
+    @include respond(tab-port) {
+      /* Targets responsive drop layout at tablet portrait width natively */
+      position: fixed;
+      top: 8.5rem;
+      right: -100%;
+      width: 100%;
+      height: calc(100vh - 8.5rem);
+      background: #0f0f0f;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 6rem;
+      gap: 3.5rem;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border-top: 1px solid #262626;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      
+      &--active {
+        right: 0; /* JS hook action handler triggers this axis rule */
+      }
     }
   }
+
+  &__link-wrapper {
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
   &__link {
-    padding: 2.2rem 3rem;
-    display: inline-block;
-    font-size: 1.6rem;
-    color: #333;
+    font-size: 1.3rem;
+    color: #aaaaaa;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    transition: color .3s;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    padding: 1rem 1.8rem;
+    border-radius: 6px;
+    transition: color 0.25s ease, background-color 0.25s ease;
 
     &:hover {
-      color: $themeClrPrimary;
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.04);
     }
+
     @include respond(tab-port) {
-      padding: 3rem 1.8rem;
-      font-size: 1.5rem;
+      display: block;
+      padding: 2rem;
+      font-size: 2rem;
+      letter-spacing: 2px;
     }
   }
 
+  /* Responsive Hamburger Layout Controls */
   &__main-ham-menu-cont {
     display: none;
-    width: 3rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    cursor: pointer;
+    filter: invert(1); /* Keeps standard vector assets visible on dark interface layer */
 
-    padding: 2.2rem 0;
-
-    @include respond(phone) {
+    @include respond(tab-port) {
       display: block;
     }
   }
-  &__main-ham-menu {
-    width: 100%;
-  }
+
+  &__main-ham-menu,
   &__main-ham-menu-close {
     width: 100%;
-  }
-
-  &__sm-menu {
-    background: #fff;
-    position: absolute;
-    width: 100%;
-    top: 100%;
-    visibility: hidden;
-    opacity: 0;
-    transition: all .3s;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-
-    &--active {
-      visibility: hidden;
-      opacity: 0;
-   
-      @include respond(phone) {
-        visibility: visible;
-        opacity: 1;
-      }
-    }
-  }
-  &__sm-menu-link {
-    a {
-      display: block;
-      text-decoration: none;
-      padding: 2.5rem 3rem;
-      font-size: 1.6rem;
-      color: #333;
-      text-align: right;
-      border-bottom: 1px solid #eee;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: color .3s;
-      
-      &:hover {
-        color: $themeClrPrimary;
-      }
-    }
-    &:first-child {
-      a {
-        border-top: 1px solid #eee;
-      }
-    }
-  }
-  &__sm-menu-link-last {
-    border-bottom: 0;
+    height: auto;
+    display: block;
   }
 }
