@@ -1,14 +1,32 @@
+Here is the updated **`_skills.scss`** component file, refactored to replace your selection.
+
+This updates the skill chips to match the clean, pill-shaped Google style, dropping the generic gray background for an elevated `#1A1A1A` card layer, shifting the text to premium silver, and integrating an elegant border hover state with your vivid tech-cyan accent.
+
+```scss
+/* ==========================================================================
+   GOOGLE-STYLE SKILL CAPSULE SYSTEM
+   ========================================================================= */
 .skills {
   display: flex;
   flex-wrap: wrap;
+  gap: 1.2rem; /* Replaced old margins with a clean, flexible layout grid gap */
+
   &__skill {
-    padding: 1rem 2rem;
-    margin-bottom: 1.5rem;
-    margin-right: 1.5rem;
-    font-size: 1.6rem;
-    background: rgba(#999, 0.2);
-    border-radius: $commonBorderRadius;
-    font-weight: 600;
-    color: #777;
+    font-size: 1.3rem;
+    padding: 0.8rem 1.8rem;
+    background: #1a1a1a; /* Elevated soft dark gray card surface */
+    border: 1px solid #333333; /* Subtle dividing outline border */
+    color: #f0f0f0; /* Primary high-contrast silver text */
+    border-radius: 100px; /* Perfect modern capsule pill shape */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      border-color: #00d4ff; /* Tech-cyan accent transformation on hover */
+      background: rgba(0, 212, 255, 0.03);
+    }
   }
 }
+
+```
