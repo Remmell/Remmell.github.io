@@ -1,4 +1,6 @@
-/* Base Style System Reset */
+/* ==========================================================================
+   RESET & SYSTEM VARIABLE ARCHITECTURE
+   ========================================================================== */
 *, *::after, *::before {
     margin: 0;
     padding: 0;
@@ -6,7 +8,7 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 62.5%; /* 1rem = 10px layout base */
     scroll-behavior: smooth;
 }
 
@@ -16,6 +18,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     line-height: 1.5;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 .main-container {
@@ -28,9 +31,9 @@ body {
     padding: 10rem 0;
 }
 
-/* ==================================================
-   HEADER & NAVIGATION
-================================================== */
+/* ==========================================================================
+   NAVIGATION HEADER COMPONENTS
+   ========================================================================== */
 .header {
     position: fixed;
     top: 0;
@@ -38,7 +41,8 @@ body {
     width: 100%;
     z-index: 1000;
     background: rgba(11, 18, 31, 0.9);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid #222735;
 }
 
@@ -55,7 +59,6 @@ body {
 .header__logo-container {
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 
 .header__logo-img-cont {
@@ -65,6 +68,7 @@ body {
     overflow: hidden;
     margin-right: 1.5rem;
     background: #1d2433;
+    border: 1px solid #222735;
 }
 
 .header__logo-img {
@@ -81,12 +85,17 @@ body {
     letter-spacing: 1px;
 }
 
-/* Navigation List Default Layout */
+.header__main {
+    display: flex;
+    align-items: center;
+}
+
+/* Desktop Menu Layout Rules */
 .header__links {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .header__link {
@@ -97,18 +106,20 @@ body {
     font-weight: 700;
     padding: 1.2rem 2rem;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s, background-color 0.2s;
+    border-radius: 6px;
 }
 
 .header__link:hover {
     color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Hamburger UI Container */
+/* Mobile Toggle Layout Rules */
 .header__main-ham-menu-cont {
     display: none;
-    width: 3rem;
-    height: 3rem;
+    width: 3.2rem;
+    height: 3.2rem;
     cursor: pointer;
 }
 
@@ -116,25 +127,77 @@ body {
 .header__main-ham-menu-close {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 .d-none {
     display: none !important;
 }
 
-/* ==================================================
-   RESPONSIVE LAYOUT RESPONSES
-================================================== */
-@media only screen and (max-width: 37.5em) { /* ~600px Mobile Viewport */
+/* ==========================================================================
+   HERO / DISPLAY MODULES
+   ========================================================================== */
+.home-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7.5rem;
+    position: relative;
+    background: radial-gradient(circle at 50% 30%, #161f33 0%, #0b121f 70%);
+}
+
+.heading-primary {
+    font-size: 4.8rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   BALANCED ROW ARCHITECTURE
+   ========================================================================== */
+.projects__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 6rem;
+    background: #131926;
+    padding: 5rem;
+    border-radius: 16px;
+    border: 1px solid #222735;
+    margin-bottom: 5rem;
+    align-items: center;
+}
+
+.projects__row-img-cont {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #222735;
+}
+
+.projects__row-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   RESPONSIVE VIEWPORT BREAKPOINTS
+   ========================================================================== */
+@media only screen and (max-width: 37.5em) { /* ~600px Mobile Draw Rules */
     .header__content {
         padding: 0 2rem;
     }
 
     .header__main-ham-menu-cont {
-        display: block; /* Hamburger becomes visible */
+        display: block;
     }
 
-    /* Transform main navigation into vertical drawer overlay */
+    /* Transform main links container directly into mobile drawer view */
     .header__links {
         position: fixed;
         top: 7.5rem;
@@ -144,13 +207,13 @@ body {
         background: #0b121f;
         flex-direction: column;
         justify-content: flex-start;
-        padding-top: 5rem;
-        gap: 2rem;
+        padding-top: 6rem;
+        gap: 2.5rem;
         transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         border-top: 1px solid #222735;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.4);
     }
 
-    /* Active State triggered by JavaScript */
     .header__links.header__links--active {
         right: 0;
     }
@@ -164,5 +227,15 @@ body {
         display: block;
         padding: 2rem;
         font-size: 1.8rem;
+    }
+
+    .projects__row {
+        grid-template-columns: 1fr;
+        grid-gap: 3rem;
+        padding: 3rem;
+    }
+    
+    .heading-primary {
+        font-size: 3.6rem;
     }
 }
