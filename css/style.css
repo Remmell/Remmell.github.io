@@ -1,5 +1,5 @@
 /* ==========================================================================
-   RESET & SYSTEM VARIABLE ARCHITECTURE (LUXURY AMBIENT BLUEPRINT)
+   RESET & UX DESIGN PRINCIPLES (DARK + LUXURIOUS METALLIC TECH)
    ========================================================================== */
 *, *::after, *::before {
     margin: 0;
@@ -13,34 +13,34 @@ html {
 }
 
 body {
-    background-color: #070a12; /* Refined premium shadow landscape */
-    color: #e2e8f0; /* Soft luxury silver body text */
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-    line-height: 1.75;
+    background-color: #0f0f0f; /* Premium dark background */
+    color: #f0f0f0; /* Primary high-contrast text */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
 /* Master Layout Framework */
 .main-container {
-    max-width: 120rem; /* Expanded landscape viewport target */
+    max-width: 120rem;
     margin: 0 auto;
     width: 90%;
 }
 
 .sec-pad {
-    padding: 14rem 0; /* Expanded padding structure for luxury negative space */
+    padding: 16rem 0; /* Generous luxury negative space */
 }
 
-/* Common Text Layout Cleansers */
+/* Clean Typography Base */
 p {
     font-size: 1.6rem;
-    color: #94a3b8; /* Muted slate for structured body text readability */
+    color: #aaaaaa; /* Secondary muted slate text */
     font-weight: 400;
 }
 
 /* ==========================================================================
-   NAVIGATION HEADER COMPONENTS (RESTORED BRAND INTERFACE)
+   MINIMALIST NAVIGATION HEADER
    ========================================================================== */
 .header {
     position: fixed;
@@ -48,17 +48,18 @@ p {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(7, 10, 18, 0.75); /* Deep frosted premium glass layers */
+    background: rgba(15, 15, 15, 0.75); /* Semi-transparent navbar */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid #262626; /* Minimal subtle dividing rule */
+    transition: background 0.3s ease;
 }
 
 .header__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 8rem; /* Elevated block constraints for cleaner presence */
+    height: 8.5rem;
     max-width: 140rem;
     margin: 0 auto;
     padding: 0 4rem;
@@ -70,15 +71,14 @@ p {
     text-decoration: none;
 }
 
-/* Fixed User Image Container */
 .header__logo-img-cont {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
     overflow: hidden;
     margin-right: 1.4rem;
-    background: #111726;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #1a1a1a;
+    border: 1px solid #333333;
 }
 
 .header__logo-img {
@@ -91,9 +91,9 @@ p {
 .header__logo-sub {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #f0f0f0;
     text-transform: uppercase;
-    letter-spacing: 3px; /* High-end fashion wide tracking execution */
+    letter-spacing: 3px;
 }
 
 .header__main {
@@ -109,10 +109,10 @@ p {
 }
 
 .header__link {
-    font-size: 1.2rem;
-    color: #94a3b8;
+    font-size: 1.3rem;
+    color: #aaaaaa;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     font-weight: 600;
     padding: 1rem 1.8rem;
     text-decoration: none;
@@ -134,127 +134,229 @@ p {
 }
 
 /* ==========================================================================
-   HERO DISPLAY MODULE
+   MASSIVE HERO DISPLAY MODULE WITH AMBIENT LIGHTING
    ========================================================================== */
 .home-hero {
-    min-height: 95vh;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 8rem;
+    padding-top: 8.5rem;
     position: relative;
-    /* Soft ambient lighting gradient */
-    background: radial-gradient(circle at 50% 45%, rgba(30, 64, 128, 0.12) 0%, rgba(7, 10, 18, 0) 65%);
-    text-align: center;
+    /* Soft cyan accent ambient glow */
+    background: radial-gradient(circle at 50% 45%, rgba(0, 212, 255, 0.07) 0%, rgba(15, 15, 15, 0) 65%);
 }
 
 .home-hero__content {
-    max-width: 86rem;
+    max-width: 95rem;
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+/* Luxury Hierarchy Typography */
+.home-hero__pre-title {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: #00d4ff; /* Tech cyan accent */
+    margin-bottom: 2rem;
+    font-weight: 700;
 }
 
 .heading-primary {
-    font-size: 6rem; /* Enhanced dynamic scale ratio */
-    font-weight: 800;
-    letter-spacing: -2px;
+    font-size: 13rem; /* Massive scale deployment */
+    font-weight: 900;
+    letter-spacing: -4px;
     color: #ffffff;
-    margin-bottom: 2.4rem;
-    line-height: 1.15;
+    line-height: 0.95;
+    margin-bottom: 3.5rem;
+    text-transform: uppercase;
 }
 
 .home-hero__info-para {
-    font-size: 1.9rem;
-    color: #cbd5e1;
-    max-width: 64rem;
-    margin: 0 auto 4rem auto;
+    font-size: 2rem;
+    color: #aaaaaa;
+    max-width: 62rem;
+    margin: 0 auto 4.5rem auto;
+    font-weight: 400;
     line-height: 1.7;
 }
 
+/* Vertical Fixed Right Social Rail */
+.home-hero__socials {
+    position: fixed;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    z-index: 10;
+}
+
+.home-hero__social-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.home-hero__social-icon {
+    width: 2rem;
+    height: 2rem;
+    filter: brightness(0) invert(1) opacity(0.5);
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.home-hero__social-icon-link:hover {
+    transform: translateY(-2px);
+}
+
+.home-hero__social-icon-link:hover .home-hero__social-icon {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.6)) brightness(1);
+}
+
+/* Mouse Scroll Indicator */
+.home-hero__mouse-scroll-cont {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mouse {
+    width: 2.4rem;
+    height: 4rem;
+    border: 2px solid #333333;
+    border-radius: 2rem;
+}
+
 /* ==========================================================================
-   INTERNET FENG SHUI BUTTON ARCHITECTURE
+   CAPSULE SHAPE FENG SHUI BUTTON SYSTEM
    ========================================================================== */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1.4rem 3.6rem; /* Refined spatial values */
+    padding: 1.6rem 4rem;
     font-size: 1.4rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    border-radius: 100px; /* Modern sleek capsule geometry */
+    border-radius: 100px; /* Precision pill shapes */
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     border: none;
 }
 
 .btn--theme {
     background: #ffffff;
-    color: #070a12;
+    color: #0f0f0f;
 }
 
 .btn--theme:hover {
-    background: #f8fafc;
+    background: #f0f0f0;
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 35px rgba(0, 212, 255, 0.25); /* Subtle cyan hover glow */
 }
 
 /* ==========================================================================
-   CLEAN SECTIONS & BALANCED CARDS
+   ABOUT & TWO-COLUMN BALANCED SKILLS LAYOUT
    ========================================================================== */
 .heading-sec__main {
-    font-size: 3.6rem;
-    font-weight: 700;
+    font-size: 4.2rem;
+    font-weight: 800;
     color: #ffffff;
     text-align: center;
-    margin-bottom: 6rem;
-    letter-spacing: -1px;
+    margin-bottom: 8rem;
+    letter-spacing: -1.5px;
 }
 
-/* Skill Chips Framework */
+.about__content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Balanced two-column container */
+    grid-gap: 10rem;
+    align-items: start;
+}
+
+.about__content-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    letter-spacing: -0.5px;
+}
+
+.about__content-details-para {
+    font-size: 1.7rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+/* Minimalist Google-Style Skill Chips */
 .skills {
     display: flex;
     flex-wrap: wrap;
     gap: 1.2rem;
-    margin-top: 2rem;
 }
 
 .skills__skill {
     font-size: 1.3rem;
-    padding: 0.8rem 1.6rem;
-    background: #111726;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    color: #cbd5e1;
-    border-radius: 8px;
+    padding: 0.8rem 1.8rem;
+    background: #1a1a1a; /* Elevated surface card layer */
+    border: 1px solid #333333;
+    color: #f0f0f0;
+    border-radius: 100px; /* Pill format layout configuration */
     font-weight: 500;
     letter-spacing: 0.5px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-/* Projects Showcase Blocks */
+.skills__skill:hover {
+    border-color: #00d4ff;
+    background: rgba(0, 212, 255, 0.03);
+}
+
+/* ==========================================================================
+   CLEAN METALLIC PROJECTS SYSTEM (LIMITED TO 2-3 MAX)
+   ========================================================================== */
+.projects__content {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
 .projects__row {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Symmetrical split matrix handles layouts cleanly */
-    grid-gap: 8rem; /* Enhanced negative space gap values */
-    background: #0f1524; /* Elevated subtle surface landscape layer */
-    padding: 5rem; /* Spacious context framing rules */
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    margin-bottom: 6rem;
+    grid-template-columns: 1.1fr 1fr;
+    grid-gap: 8rem;
+    background: #1a1a1a; /* Soft dark surface gray */
+    padding: 5rem;
+    border-radius: 20px;
+    border: 1px solid #333333;
     align-items: center;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 30px -15px rgba(0, 212, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects__row:hover {
+    transform: translateY(-8px); /* Modern elevation lift transition */
+    box-shadow: 0 20px 40px -15px rgba(0, 212, 255, 0.25);
+    border-color: rgba(0, 212, 255, 0.3);
 }
 
 .projects__row-img-cont {
     width: 100%;
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    background: #070a12;
+    border: 1px solid #333333;
+    background: #0f0f0f;
 }
 
 .projects__row-img {
@@ -265,34 +367,34 @@ p {
 }
 
 .projects__row:hover .projects__row-img {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .projects__row-content {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.2rem;
 }
 
 .projects__row-content-title {
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.5px;
 }
 
 /* ==========================================================================
-   CONTACT FORM OVERHAUL
+   CONTACT FORM WITH FOCUS GLOW SYSTEM
    ========================================================================== */
 .contact__form-container {
-    background: #0f1524;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    padding: 5.5rem;
-    max-width: 64rem;
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    padding: 6rem;
+    max-width: 68rem;
     width: 100%;
-    border-radius: 24px;
+    border-radius: 20px;
     margin: 0 auto;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.35);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
 }
 
 .contact__form-field {
@@ -304,7 +406,7 @@ p {
 
 .contact__form-label {
     font-size: 1.3rem;
-    color: #cbd5e1;
+    color: #aaaaaa;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -313,10 +415,10 @@ p {
 .contact__form-input,
 .contact__form-textarea {
     width: 100%;
-    background: #070a12;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0f0f0f;
+    border: 1px solid #333333;
     border-radius: 10px;
-    padding: 1.6rem 1.8rem;
+    padding: 1.8rem;
     color: #ffffff;
     font-family: inherit;
     font-size: 1.5rem;
@@ -328,26 +430,26 @@ p {
     resize: none;
 }
 
+/* Glass Focus Action Array Hooks */
 .contact__form-input:focus,
 .contact__form-textarea:focus {
     outline: none;
-    border-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+    border-color: #00d4ff;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
 }
 
-/* Contact Button Re-anchoring */
 .contact__form-container .btn {
     width: 100%;
-    padding: 1.6rem;
-    border-radius: 10px; /* Synchronized interface rounding array setup */
+    padding: 1.8rem;
+    border-radius: 10px;
 }
 
 /* ==========================================================================
-   FOOTER FRAMEWORK & SOCIALS
+   MINIMALIST FOOTER REALIGNMENT
    ========================================================================== */
 .main-footer {
-    background: #04060b;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    background: #0f0f0f;
+    border-top: 1px solid #262626;
     padding: 8rem 0 4rem 0;
 }
 
@@ -364,128 +466,125 @@ p {
     align-items: flex-end;
 }
 
-.main-footer__row-2 {
-    max-width: 44rem;
+.main-footer__row-2 h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 .main-footer__short-desc {
     margin-top: 1.2rem;
     font-size: 1.4rem;
-    line-height: 1.7;
+    color: #aaaaaa;
+    max-width: 40rem;
 }
 
-/* Fixed Social SVG Placement Matrix */
 .main-footer__social-cont {
     display: flex;
     align-items: center;
-    gap: 2.4rem;
-    margin-top: 1.5rem;
+    gap: 2.5rem;
 }
 
 .main-footer__icon {
     width: 2.2rem;
     height: 2.2rem;
-    display: block;
-    filter: brightness(0) invert(1) opacity(0.5);
+    filter: brightness(0) invert(1) opacity(0.4);
     transition: opacity 0.25s ease, filter 0.25s ease;
 }
 
 .main-footer__icon:hover {
     opacity: 1;
-    filter: brightness(0) invert(1) opacity(1);
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5)) brightness(1);
 }
 
 .main-footer__lower {
     text-align: center;
     font-size: 1.3rem;
-    color: #64748b;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    color: #333333;
+    border-top: 1px solid #262626;
     padding-top: 4rem;
 }
 
 .main-footer__lower a {
-    color: #94a3b8;
+    color: #aaaaaa;
     text-decoration: none;
-    font-weight: 500;
-}
-
-.main-footer__lower a:hover {
-    color: #ffffff;
 }
 
 /* ==========================================================================
-   RESPONSIVE VIEWPORT BREAKPOINTS
+   RESPONSIVE LAYOUT MATRIX CONSTRAINTS
    ========================================================================== */
-@media only screen and (max-width: 56.25em) { /* Tablet Layout Rules */
-    .sec-pad {
-        padding: 10rem 0;
+@media only screen and (max-width: 75em) { /* ~1200px Workspace Shifting */
+    .heading-primary {
+        font-size: 10rem;
     }
+    .home-hero__socials {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        transform: none;
+        margin-top: 4rem;
+    }
+}
 
+@media only screen and (max-width: 56.25em) { /* Tablet Breakpoints */
+    .sec-pad {
+        padding: 12rem 0;
+    }
+    .about__content {
+        grid-template-columns: 1fr;
+        grid-gap: 6rem;
+    }
     .projects__row {
         grid-template-columns: 1fr;
         grid-gap: 4rem;
         padding: 4rem;
     }
-    
     .main-footer__upper {
         flex-direction: column;
         gap: 5rem;
     }
-    
     .main-footer__row-1 {
         align-items: flex-start;
     }
 }
 
-@media only screen and (max-width: 37.5em) { /* Mobile Viewport Drawer Rules */
+@media only screen and (max-width: 37.5em) { /* Mobile Viewports */
     html {
-        font-size: 56.25%; /* Drop base reference slightly for smaller screens */
+        font-size: 50%; /* Uniformly recalibrate scaling for small touch-displays */
     }
-
+    .heading-primary {
+        font-size: 5.5rem;
+        letter-spacing: -1.5px;
+    }
     .header__content {
         padding: 0 2rem;
     }
-
     .header__main-ham-menu-cont {
         display: block;
     }
-
     .header__links {
         position: fixed;
-        top: 8rem;
+        top: 8.5rem;
         right: -100%;
         width: 100%;
-        height: calc(100vh - 8rem);
-        background: #070a12;
+        height: calc(100vh - 8.5rem);
+        background: #0f0f0f;
         flex-direction: column;
         justify-content: flex-start;
         padding-top: 6rem;
-        gap: 3rem;
+        gap: 3.5rem;
         transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        border-top: 1px solid rgba(255, 255, 255, 0.04);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        border-top: 1px solid #262626;
     }
-
     .header__links.header__links--active {
         right: 0;
     }
-
-    .header__link-wrapper {
-        width: 100%;
-        text-align: center;
-    }
-
     .header__link {
         display: block;
-        padding: 2rem;
-        font-size: 1.8rem;
+        font-size: 2rem;
+        text-align: center;
     }
-
-    .heading-primary {
-        font-size: 4rem;
-    }
-    
     .contact__form-container {
-        padding: 3.5rem;
+        padding: 4rem 2.5rem;
     }
 }
