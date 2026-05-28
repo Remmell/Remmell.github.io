@@ -1,38 +1,50 @@
-// ---
-const hamMenuBtn = document.querySelector('.header__main-ham-menu-cont')
-const smallMenu = document.querySelector('.header__sm-menu')
-const headerHamMenuBtn = document.querySelector('.header__main-ham-menu')
-const headerHamMenuCloseBtn = document.querySelector(
-  '.header__main-ham-menu-close'
-)
-const headerSmallMenuLinks = document.querySelectorAll('.header__sm-menu-link')
+// ==========================================================================
+// REMIXX-BRAND PORTFOLIO - UNIFIED INTERACTION LOGIC
+// ==========================================================================
 
-hamMenuBtn.addEventListener('click', () => {
-  if (smallMenu.classList.contains('header__sm-menu--active')) {
-    smallMenu.classList.remove('header__sm-menu--active')
-  } else {
-    smallMenu.classList.add('header__sm-menu--active')
-  }
-  if (headerHamMenuBtn.classList.contains('d-none')) {
-    headerHamMenuBtn.classList.remove('d-none')
-    headerHamMenuCloseBtn.classList.add('d-none')
-  } else {
-    headerHamMenuBtn.classList.add('d-none')
-    headerHamMenuCloseBtn.classList.remove('d-none')
-  }
-})
+document.addEventListener('DOMContentLoaded', () => {
+    // Select structural toggle triggers and asset panels
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navLinks = document.getElementById('nav-links');
+    const openIcon = document.getElementById('ham-icon-open');
+    const closeIcon = document.getElementById('ham-icon-close');
+    const menuLinks = document.querySelectorAll('.header__link');
+    const headerLogoContainer = document.querySelector('.header__logo-container');
 
-for (let i = 0; i < headerSmallMenuLinks.length; i++) {
-  headerSmallMenuLinks[i].addEventListener('click', () => {
-    smallMenu.classList.remove('header__sm-menu--active')
-    headerHamMenuBtn.classList.remove('d-none')
-    headerHamMenuCloseBtn.classList.add('d-none')
-  })
-}
+    /**
+     * Toggles the active state of the mobile slide drawer layout 
+     * and switches the visible hamburger vector graphic.
+     */
+    const toggleMenu = () => {
+        const isOpened = navLinks.classList.toggle('header__links--active');
+        
+        if (isOpened) {
+            openIcon.classList.add('d-none');
+            closeIcon.classList.remove('d-none');
+        } else {
+            openIcon.classList.remove('d-none');
+            closeIcon.classList.add('d-none');
+        }
+    };
 
-// ---
-const headerLogoConatiner = document.querySelector('.header__logo-container')
+    // Bind event listener to the main hamburger button wrapper
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', toggleMenu);
+    }
 
-headerLogoConatiner.addEventListener('click', () => {
-  location.href = 'index.html'
-})
+    // Auto-close navigation drawer layout when jumping to anchor section hashes
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks && navLinks.classList.contains('header__links--active')) {
+                toggleMenu();
+            }
+        });
+    });
+
+    // Branding logo homepage redirection routing action
+    if (headerLogoContainer) {
+        headerLogoContainer.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    }
+});
