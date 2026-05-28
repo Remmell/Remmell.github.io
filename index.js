@@ -1,5 +1,5 @@
 // ==========================================================================
-// REMIXX-BRAND PORTFOLIO - UNIFIED INTERACTION LOGIC
+// RMML DESIGN PORTFOLIO - UNIFIED INTERACTION LOGIC
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,9 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Toggles the active state of the mobile slide drawer layout 
-     * and switches the visible hamburger vector graphic.
+     * and switches the visible hamburger vector graphic safely.
      */
     const toggleMenu = () => {
+        if (!navLinks || !openIcon || !closeIcon) return;
+        
         const isOpened = navLinks.classList.toggle('header__links--active');
         
         if (isOpened) {
@@ -27,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Bind event listener to the main hamburger button wrapper
-    if (hamburgerBtn) {
+    // Bind event listener to the main hamburger button wrapper safely
+    if (hamburgerBtn && navLinks && openIcon && closeIcon) {
         hamburgerBtn.addEventListener('click', toggleMenu);
     }
 
@@ -41,10 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Branding logo homepage redirection routing action
+    // Branding logo homepage redirection routing action with strict style pointing
     if (headerLogoContainer) {
+        headerLogoContainer.style.cursor = 'pointer';
         headerLogoContainer.addEventListener('click', () => {
-            window.location.href = 'index.html';
+            window.location.href = './index.html';
         });
     }
 });
