@@ -1,36 +1,48 @@
+Here is the updated **`_mouse-scroll.scss`** component file, refactored to replace your selection.
+
+This version converts the hardcoded pixels to rem units to match your global sizing architecture, shifts the color scheme to your premium silver and tech-cyan accents, and utilizes clean CSS transform animations for smoother hardware performance.
+
+```scss
+/* ==========================================================================
+   AMBIENT MOUSE SCROLL INDICATOR
+   ========================================================================== */
 .mouse {
-  width: 25px;
-  height: 40px;
-  border: 2px solid #eee;
-  border-radius: 60px;
+  width: 2.4rem;
+  height: 4rem;
+  border: 2px solid #333333; /* Dark muted outline matching container borders */
+  border-radius: 100px;
   position: relative;
   overflow: hidden;
+  transition: border-color 0.3s ease;
+
   &::before {
     content: '';
-    width: 5px;
-    height: 5px;
+    width: 0.4rem;
+    height: 0.4rem;
     position: absolute;
-    top: 7px;
+    top: 0.8rem;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #eee;
+    background-color: #00d4ff; /* Tech-cyan accent color for the scroll wheel wheel */
     border-radius: 50%;
+    animation: luxuryWheel 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+}
+
+/* Hardware-optimized scrolling transition loops */
+@keyframes luxuryWheel {
+  0% {
     opacity: 1;
-    animation: wheel 1.3s infinite;
-    -webkit-animation: wheel 1.3s infinite;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  80% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(1.6rem) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0) scale(1);
   }
 }
 
-@keyframes wheel {
-  to {
-    opacity: 0;
-    top: 27px;
-  }
-}
-
-@-webkit-keyframes wheel {
-  to {
-    opacity: 0;
-    top: 27px;
-  }
-}
+```
