@@ -1,3 +1,11 @@
-$themeClrPrimary: #0062b9;
+/* ==========================================================================
+   SYSTEM DESIGN TOKENS (LUXURY DARK TECH)
+   ========================================================================== */
 
-$commonBorderRadius: 5px;
+// Core Brand Accents
+$themeClrPrimary: #00d4ff;       /* Premium vivid tech-cyan */
+$themeClrSecondary: #1a1a1a;     /* Soft dark surface gray for components */
+
+// Global Layout Geometry
+$commonBorderRadius: 20px;       /* Sleek, expanded rounding rules for luxury cards and containers */
+$inputBorderRadius: 10px;        /* Symmetrical interface grounding for form controls */
