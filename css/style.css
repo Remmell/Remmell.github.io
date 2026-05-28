@@ -1,52 +1,44 @@
-/* ==================================================
-   GEMINI AI INTERFACE - REFACTORED BLUEPRINT
-================================================== */
-
+/* Base Style System Reset */
 *, *::after, *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: inherit;
 }
 
 html {
-    font-size: 62.5%; /* 1rem = 10px */
+    font-size: 62.5%;
     scroll-behavior: smooth;
 }
 
 body {
     background-color: #0b121f;
     color: #e3e3e3;
-    font-family: 'Google Sans', 'Roboto', system-ui, -apple-system, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     line-height: 1.5;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
 }
 
-/* Base Layout Containers */
 .main-container {
-    max-width: 120rem; /* Increased for wider screen breathing room */
+    max-width: 120rem;
     margin: 0 auto;
     width: 90%;
 }
 
 .sec-pad {
-    padding: 10rem 0; /* Uniform padding across sections */
+    padding: 10rem 0;
 }
 
 /* ==================================================
-   HEADER & NAVIGATION (FIXED CLASHING MENUS)
+   HEADER & NAVIGATION
 ================================================== */
-
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(11, 18, 31, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(11, 18, 31, 0.9);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid #222735;
 }
 
@@ -54,29 +46,25 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 7rem; /* Explicit layout ceiling */
-    max-width: 130rem;
+    height: 7.5rem;
+    max-width: 140rem;
     margin: 0 auto;
-    padding: 0 2.4rem;
+    padding: 0 4rem;
 }
 
 .header__logo-container {
     display: flex;
     align-items: center;
-    color: #ffffff;
+    cursor: pointer;
 }
 
 .header__logo-img-cont {
-    width: 4rem;
-    height: 4rem;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: 50%;
     overflow: hidden;
-    margin-right: 1.2rem;
+    margin-right: 1.5rem;
     background: #1d2433;
-    border: 1px solid #3c4043;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .header__logo-img {
@@ -86,130 +74,95 @@ body {
 }
 
 .header__logo-sub {
-    font-size: 1.6rem;
-    font-weight: 500;
-    letter-spacing: -0.2px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Nav Links Architecture */
+/* Navigation List Default Layout */
 .header__links {
     display: flex;
     align-items: center;
-    gap: 1rem; /* Clean element separation instead of heavy padding */
+    list-style: none;
+    gap: 1.5rem;
 }
 
 .header__link {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #c4c7c5;
-    font-weight: 500;
-    padding: 0.8rem 1.6rem;
-    border-radius: 8px;
-    transition: color 0.2s, background-color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 1.2rem 2rem;
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
 .header__link:hover {
     color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* ==================================================
-   DYNAMIC TYPOGRAPHY SYSTEM
-================================================== */
-
-.heading-primary {
-    font-size: 4.8rem; /* Scaled down slightly to prevent breaking lines early */
-    font-weight: 600;
-    letter-spacing: -1px;
-    text-align: center;
-    line-gradient: linear-gradient(74deg, #4285f4 0%, #9b72cb 30%, #d96570 70%);
-    background: linear-gradient(74deg, #4285f4 0%, #9b72cb 30%, #d96570 70%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 2.4rem;
+/* Hamburger UI Container */
+.header__main-ham-menu-cont {
+    display: none;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
 }
 
-.heading-sec__main {
-    font-size: 3.2rem;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 1.6rem;
-}
-
-.heading-sec__sub {
-    font-size: 1.6rem;
-    color: #c4c7c5;
-    text-align: center;
-    max-width: 64rem;
-    margin: 0 auto 6rem auto;
-    line-height: 1.6;
-}
-
-/* ==================================================
-   HERO PANEL OVERLAY SETUP
-================================================== */
-
-.home-hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 7rem; /* Prevents header from covering hero content */
-    position: relative;
-}
-
-/* ==================================================
-   PROJECTS Clean Row Architecture
-================================================== */
-
-.projects__row {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Balanced even split */
-    grid-gap: 6rem;
-    background: #131926;
-    padding: 4rem;
-    border-radius: 24px;
-    border: 1px solid #222735;
-    margin-bottom: 4rem;
-    align-items: center;
-}
-
-.projects__row-img-cont {
+.header__main-ham-menu,
+.header__main-ham-menu-close {
     width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #222735;
+    height: 100%;
 }
 
-.projects__row-img {
-    width: 100%;
-    height: auto;
-    display: block;
+.d-none {
+    display: none !important;
 }
 
 /* ==================================================
-   RESPONSIVE MEDIA QUERIES (BREAKPOINTS)
+   RESPONSIVE LAYOUT RESPONSES
 ================================================== */
-
-@media only screen and (max-width: 56.25em) { /* ~900px */
-    html { font-size: 56.25%; }
-    
-    .sec-pad { padding: 8rem 0; }
-    
-    .projects__row {
-        grid-template-columns: 1fr; /* Single column stack */
-        grid-gap: 3rem;
-        padding: 3rem;
+@media only screen and (max-width: 37.5em) { /* ~600px Mobile Viewport */
+    .header__content {
+        padding: 0 2rem;
     }
-}
 
-@media only screen and (max-width: 37.5em) { /* ~600px */
-    html { font-size: 50%; }
-    
-    .heading-primary { font-size: 3.6rem; }
-    
+    .header__main-ham-menu-cont {
+        display: block; /* Hamburger becomes visible */
+    }
+
+    /* Transform main navigation into vertical drawer overlay */
     .header__links {
-        display: none; /* Mobile menu drawer toggle required here */
+        position: fixed;
+        top: 7.5rem;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 7.5rem);
+        background: #0b121f;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 5rem;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border-top: 1px solid #222735;
+    }
+
+    /* Active State triggered by JavaScript */
+    .header__links.header__links--active {
+        right: 0;
+    }
+
+    .header__link-wrapper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header__link {
+        display: block;
+        padding: 2rem;
+        font-size: 1.8rem;
     }
 }
