@@ -1,293 +1,302 @@
+Here is the completely rewritten **`_home.scss`** file for your pages directory.
+
+This version integrates the luxurious dark-tech design system: replacing the bright backgrounds with deep `#0F0F0F` surfaces, creating high-end floating cards for projects, implementing floating labels with glow rings for forms, and structuring your side-rail layout correctly.
+
+```scss
+/* ==========================================================================
+   HOME PAGE MASTER PRODUCTION MODULE
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO DISPLAY BLOCK (AMBIENT TECH LAYOUT)
+   -------------------------------------------------------------------------- */
 .home-hero {
-  color: #fff;
-  background: linear-gradient(
-      to right,
-      rgba($themeClrPrimary, 0.8),
-      rgba($themeClrPrimary, 0.8)
-    ),
-    url(../../assets/svg/common-bg.svg);
-  background-position: center;
-
-  height: 100vh;
-
-  min-height: 80rem;
-  max-height: 120rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8.5rem;
   position: relative;
+  /* Soft tech-cyan background ambient glow ring */
+  background: radial-gradient(circle at 50% 45%, rgba(0, 212, 255, 0.07) 0%, rgba(15, 15, 15, 0) 65%);
 
-  @include respond(phone) {
-    height: unset;
-    min-height: unset;
+  @include respond(tab-land) {
+    padding: 12rem 0;
   }
 
+  &__content {
+    max-width: 95rem;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+  }
+
+  &__pre-title {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: #00d4ff;
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+
+  &__info-para {
+    font-size: 2rem;
+    color: #aaaaaa;
+    max-width: 62rem;
+    margin: 0 auto 4.5rem auto;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  &__cta {
+    text-align: center;
+  }
+
+  /* Fixed Right Vector Social Rail System */
   &__socials {
-    position: absolute;
+    position: fixed;
+    right: 4rem;
     top: 50%;
-    border: 2px solid #eee;
-    border-left: 2px solid #eee;
     transform: translateY(-50%);
-    @include respond(tab-port) {
-      display: none;
-    }
-  }
-  &__mouse-scroll-cont {
-    position: absolute;
-    bottom: 3%;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    z-index: 10;
 
-    @include respond(phone) {
-      display: none;
+    @include respond(tab-land) {
+      position: static;
+      flex-direction: row;
+      justify-content: center;
+      transform: none;
+      margin-top: 5rem;
     }
-  }
-
-  &__social {
-    width: 5rem;
   }
 
   &__social-icon-link {
-    width: 100%;
-    display: block;
-    padding: 1.2rem;
-    border-bottom: 2px solid #eee;
-    transition: background .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
 
     &:hover {
-      background: rgba(#fff,.1);
-    }
-
-    &--bd-none {
-      border-bottom: 0;
+      transform: translateY(-2px);
     }
   }
 
   &__social-icon {
-    width: 100%;
-  }
+    width: 2rem;
+    height: 2rem;
+    filter: brightness(0) invert(1) opacity(0.5);
+    transition: filter 0.3s ease, opacity 0.3s ease;
 
-  &__content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90rem;
-    width: 92%;
-
-    @include respond(phone) {
-      padding: 19rem 0 13rem 0;
-      margin: auto;
-      position: static;
-      transform: translate(0, 0);
+    &:hover {
+      opacity: 1;
+      filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.6)) brightness(1);
     }
   }
 
-  &__info {
-    margin: 3rem auto 0 auto;
-    max-width: 80rem;
-  }
-  &__cta {
-    margin-top: 5rem;
-    text-align: center;
+  /* Mouse Pointer Core Positioning */
+  &__mouse-scroll-cont {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include respond(tab-land) {
+      display: none;
+    }
   }
 }
 
+/* --------------------------------------------------------------------------
+   2. ABOUT MODULE (TWO-COLUMN SYMMETRICAL SPLIT)
+   -------------------------------------------------------------------------- */
 .about {
-  background: rgb(250, 250, 250);
+  background: #0f0f0f;
+
   &__content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
     grid-gap: 10rem;
+    align-items: start;
+
     @include respond(tab-port) {
       grid-template-columns: 1fr;
-      grid-gap: 8rem;
+      grid-gap: 6rem;
     }
+
     &-title {
+      font-size: 2.4rem;
       font-weight: 700;
-      font-size: 2.8rem;
+      color: #ffffff;
       margin-bottom: 3rem;
-      @include respond(phone) {
-        font-size: 2.4rem;
-      }
+      letter-spacing: -0.5px;
     }
+
     &-details-para {
-      font-size: 1.8rem;
-      color: grey;
-      max-width: 60rem;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-      &--hl {
-        font-weight: 700;
-        margin: 0 3px;
-      }
-      &:last-child {
-        margin-bottom: 4rem;
+      font-size: 1.7rem;
+      color: #aaaaaa;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+
+      strong {
+        color: #ffffff;
+        font-weight: 600;
       }
     }
   }
 }
 
+/* --------------------------------------------------------------------------
+   3. CURATED PROJECTS (METALLIC ELEVATED SURFACE CARDS)
+   -------------------------------------------------------------------------- */
 .projects {
+  background: #0f0f0f;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
   &__row {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-gap: 5rem;
-    margin-bottom: 11rem;
+    grid-template-columns: 1.1fr 1fr;
+    grid-gap: 8rem;
+    background: #1a1a1a; /* Soft surface gray card base */
+    padding: 5rem;
+    border-radius: 20px;
+    border: 1px solid #333333;
+    align-items: center;
+    box-shadow: 0 10px 30px -15px rgba(0, 212, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     @include respond(tab-port) {
       grid-template-columns: 1fr;
-      grid-gap: 2rem;
-      margin-bottom: 8rem;
+      grid-gap: 4rem;
+      padding: 4rem;
     }
 
-    @include respond(tab-port) {
-      text-align: center;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -15px rgba(0, 212, 255, 0.25);
+      border-color: rgba(0, 212, 255, 0.3);
     }
 
     &-img-cont {
+      width: 100%;
+      border-radius: 12px;
       overflow: hidden;
+      border: 1px solid #333333;
+      background: #0f0f0f;
     }
+
     &-img {
       width: 100%;
+      height: auto;
       display: block;
-      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+    &:hover &-img {
+      transform: scale(1.02);
+    }
+
     &-content {
-      padding: 2rem 0;
       display: flex;
-      justify-content: center;
       flex-direction: column;
-      align-items: flex-start;
+      gap: 2.2rem;
 
-      @include respond(tab-port) {
-        align-items: center;
-      }
-
-      &-title {
-        font-weight: 700;
-        font-size: 2.8rem;
-        margin-bottom: 2rem;
-        @include respond(phone) {
-          font-size: 2.4rem;
-        }
-      }
-      &-desc {
-        font-size: 1.8rem;
-        color: grey;
-        max-width: 60rem;
+      p {
+        font-size: 1.6rem;
+        color: #aaaaaa;
         line-height: 1.7;
-        margin-bottom: 3rem;
-        @include respond(phone) {
-          font-size: 1.7rem;
-        }
       }
+    }
+
+    &-content-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.5px;
     }
   }
 }
 
+/* --------------------------------------------------------------------------
+   4. CONTACT CONSOLE (DEEP INTERFACE FIELD ARRAYS)
+   -------------------------------------------------------------------------- */
 .contact {
-  background: linear-gradient(
-      to right,
-      rgba($themeClrPrimary, 0.8),
-      rgba($themeClrPrimary, 0.8)
-    ),
-    url(../../assets/svg/common-bg.svg);
-  background-size: cover;
-  background-position: center;
+  background: #0f0f0f;
 
   &__form-container {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: rgba(#fff, 2);
-    padding: 4rem;
-    margin-top: 6rem;
-    max-width: 80rem;
-    text-align: right;
-    width: 95%;
-    border-radius: $commonBorderRadius;
-
-    margin: 5rem auto 0 auto;
-    @include respond(phone) {
-      padding: 3rem;
-    }
-  }
-  &__form-field {
-    margin-bottom: 4rem;
-    @include respond(phone) {
-      margin-bottom: 3rem;
-    }
-  }
-  &__form-label {
-    color: #666;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    display: block;
-    text-align: left;
-  }
-  &__form-input {
-    color: #333;
-    padding: 2rem;
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    padding: 6rem;
+    max-width: 68rem;
     width: 100%;
-    border: 1px solid rgb(235, 235, 235);
-    font-size: 1.6rem;
-    letter-spacing: 0px;
-    background: rgba(rgb(240, 240, 240), 1);
-    border-radius: $commonBorderRadius;
-    font-weight: 600;
-    /* Code for Modern Browsers */
-    &::placeholder {
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
+    border-radius: 20px;
+    margin: 0 auto;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
 
-    /* Code for WebKit, Blink, Edge */
-    &::-webkit-input-placeholder {
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
-
-    /* Code for Internet Explorer 10-11 */
-    &:-ms-input-placeholder {
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
-
-    /* Code for Microsoft Edge */
-    &::-ms-input-placeholder {
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
-
-    /* Code for Mozilla Firefox 4 to 18 */
-    &:-moz-placeholder {
-      opacity: 1;
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
-    }
-
-    /* Code for Mozilla Firefox 19+ */
-    &::-moz-placeholder {
-      opacity: 1;
-      color: #999;
-      font-weight: 600;
-      font-size: 1.6rem;
+    @include respond(phone) {
+      padding: 4rem 2.5rem;
     }
   }
-  &__btn {
-    width: 30%;
 
-    padding: 2rem 4rem;
-    font-size: 1.6rem;
-    @include respond(phone) {
-      width: 100%;
+  &__form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  &__form-label {
+    font-size: 1.3rem;
+    color: #aaaaaa;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  &__form-input {
+    width: 100%;
+    background: #0f0f0f;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    padding: 1.8rem;
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+    &::placeholder {
+      color: #555555;
     }
+
+    &:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.15); /* Responsive focus ring halo */
+    }
+  }
+
+  &__form-textarea {
+    @extend .contact__form-input;
+    min-height: 18rem;
+    resize: none;
+  }
+
+  // Submit trigger action layout settings
+  .btn {
+    width: 100%;
+    padding: 1.8rem;
+    border-radius: 10px;
   }
 }
+
+```
