@@ -11,7 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   </head>
   <body>
     <header class="header">
@@ -41,23 +41,28 @@
     <main>
       <section class="home-hero">
         <div class="home-hero__content">
-          <h1 class="heading-primary">Hey, My name is John Doe</h1>
-          <div class="home-hero__info">
-            <p class="text-primary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis tempora explicabo quae quod deserunt eius sapiente solutions for complex problems.
-            </p>
-          </div>
+          <span class="home-hero__pre-title">Digital Architect</span>
+          <h1 class="heading-primary">John<br>Doe</h1>
+          <p class="home-hero__info-para">
+            Crafting refined high-fidelity digital platforms with an emphasis on minimalist design paradigms and flawless front-end technical execution.
+          </p>
           <div class="home-hero__cta">
-            <a href="./#projects" class="btn btn--bg">Projects</a>
+            <a href="./#projects" class="btn btn--bg btn--theme">Explore Projects</a>
           </div>
         </div>
+
         <div class="home-hero__socials">
-          <div class="home-hero__social"><a href="#" class="home-hero__social-icon-link"><img src="./assets/png/linkedin-ico.png" alt="icon" class="home-hero__social-icon" /></a></div>
-          <div class="home-hero__social"><a href="#" class="home-hero__social-icon-link"><img src="./assets/png/github-ico.png" alt="icon" class="home-hero__social-icon" /></a></div>
-          <div class="home-hero__social"><a href="#" class="home-hero__social-icon-link"><img src="./assets/png/twitter-ico.png" alt="icon" class="home-hero__social-icon" /></a></div>
-          <div class="home-hero__social"><a href="#" class="home-hero__social-icon-link"><img src="./assets/png/yt-ico.png" alt="icon" class="home-hero__social-icon" /></a></div>
-          <div class="home-hero__social"><a href="#" class="home-hero__social-icon-link home-hero__social-icon-link--bd-none"><img src="./assets/png/insta-ico.png" alt="icon" class="home-hero__social-icon" /></a></div>
+          <a href="#" class="home-hero__social-icon-link">
+            <img src="./assets/png/linkedin-ico.png" alt="LinkedIn" class="home-hero__social-icon" />
+          </a>
+          <a href="#" class="home-hero__social-icon-link">
+            <img src="./assets/png/github-ico.png" alt="GitHub" class="home-hero__social-icon" />
+          </a>
+          <a href="#" class="home-hero__social-icon-link">
+            <img src="./assets/png/twitter-ico.png" alt="Twitter" class="home-hero__social-icon" />
+          </a>
         </div>
+
         <div class="home-hero__mouse-scroll-cont">
           <div class="mouse"></div>
         </div>
@@ -65,19 +70,14 @@
 
       <section id="about" class="about sec-pad">
         <div class="main-container">
-          <h2 class="heading heading-sec heading-sec__mb-med">
-            <span class="heading-sec__main">About Me</span>
-            <span class="heading-sec__sub">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-          </h2>
+          <h2 class="heading heading-sec__main">About Me</h2>
           <div class="about__content">
             <div class="about__content-main">
               <h3 class="about__content-title">Get to know me!</h3>
-              <div class="about__content-details">
-                <p class="about__content-details-para">
-                  Hey! It's <strong>John Doe</strong> and I'm a <strong>Frontend Web Developer</strong>. I create responsive, lightning-fast digital products.
-                </p>
-              </div>
-              <a href="./#contact" class="btn btn--med btn--theme dynamicBgClr">Contact</a>
+              <p class="about__content-details-para">
+                Hey! It's <strong>John Doe</strong> and I'm a <strong>Frontend Web Developer</strong>. I create responsive, lightning-fast digital products.
+              </p>
+              <a href="./#contact" class="btn btn--med btn--theme">Contact</a>
             </div>
             <div class="about__content-skills">
               <h3 class="about__content-title">My Skills</h3>
@@ -96,10 +96,7 @@
 
       <section id="projects" class="projects sec-pad">
         <div class="main-container">
-          <h2 class="heading heading-sec heading-sec__mb-bg">
-            <span class="heading-sec__main">Projects</span>
-            <span class="heading-sec__sub">A curated selection of my professional workspace buildouts.</span>
-          </h2>
+          <h2 class="heading heading-sec__main">Projects</h2>
           <div class="projects__content">
             <div class="projects__row">
               <div class="projects__row-img-cont">
@@ -107,8 +104,8 @@
               </div>
               <div class="projects__row-content">
                 <h3 class="projects__row-content-title">Project 1</h3>
-                <p class="projects__row-content-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <a href="./project-1.html" class="btn btn--med btn--theme dynamicBgClr" target="_blank">Case Study</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href="./project-1.html" class="btn btn--med btn--theme" target="_blank">Case Study</a>
               </div>
             </div>
             <div class="projects__row">
@@ -117,20 +114,17 @@
               </div>
               <div class="projects__row-content">
                 <h3 class="projects__row-content-title">Project 2</h3>
-                <p class="projects__row-content-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <a href="./project-2.html" class="btn btn--med btn--theme dynamicBgClr" target="_blank">Case Study</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href="./project-2.html" class="btn btn--med btn--theme" target="_blank">Case Study</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="contact sec-pad dynamicBg">
+      <section id="contact" class="contact sec-pad">
         <div class="main-container">
-          <h2 class="heading heading-sec heading-sec__mb-med">
-            <span class="heading-sec__main heading-sec__main--lt">Contact</span>
-            <span class="heading-sec__sub heading-sec__sub--lt">Drop a line below to get in touch.</span>
-          </h2>
+          <h2 class="heading heading-sec__main">Contact</h2>
           <div class="contact__form-container">
             <form action="#" class="contact__form">
               <div class="contact__form-field">
@@ -143,9 +137,9 @@
               </div>
               <div class="contact__form-field">
                 <label class="contact__form-label" for="message">Message</label>
-                <textarea required cols="30" rows="10" class="contact__form-input" placeholder="Enter Your Message" name="message" id="message"></textarea>
+                <textarea required class="contact__form-textarea" placeholder="Enter Your Message" name="message" id="message"></textarea>
               </div>
-              <button type="submit" class="btn btn--theme contact__btn">Submit</button>
+              <button type="submit" class="btn btn--theme">Submit</button>
             </form>
           </div>
         </div>
@@ -155,15 +149,15 @@
     <footer class="main-footer">
       <div class="main-container">
         <div class="main-footer__upper">
-          <div class="main-footer__row main-footer__row-1">
-            <h2 class="heading heading-sm main-footer__heading-sm"><span>Social</span></h2>
-            <div class="main-footer__social-cont">
-              <a target="_blank" rel="noreferrer" href="#"><img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="icon" /></a>
-              <a target="_blank" rel="noreferrer" href="#"><img class="main-footer__icon" src="./assets/png/github-ico.png" alt="icon" /></a>
-            </div>
+          <div class="main-footer__row-2">
+            <h4>REMIXX-BRAND</h4>
+            <p class="main-footer__short-desc">Designing and engineering next-generation user experiences with premium technical execution.</p>
           </div>
-          <div class="main-footer__row main-footer__row-2">
-            <h4 class="heading heading-sm text-lt">REMIXX-BRAND</h4>
+          <div class="main-footer__row-1">
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="#"><img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="LinkedIn" /></a>
+              <a target="_blank" rel="noreferrer" href="#"><img class="main-footer__icon" src="./assets/png/github-ico.png" alt="GitHub" /></a>
+            </div>
           </div>
         </div>
         <div class="main-footer__lower">
