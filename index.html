@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohasu | Hub</title>
+    <meta name="description" content="Rohasu — personal hub for GitHub, music brand, and mobile apps.">
+    <meta property="og:title" content="Rohasu | Hub">
+    <meta property="og:description" content="Links to GitHub, music brand, and AdMob verification.">
+    <meta property="og:type" content="website">
     <style>
         * {
             margin: 0;
@@ -11,118 +15,206 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #0b0f19;
+            --card: rgba(17, 24, 39, 0.72);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #f3f4f6;
+            --muted: #9ca3af;
+            --accent: #818cf8; /* soft indigo */
+        }
+
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #0b0f19;
-            color: #f3f4f6;
+            background-color: var(--bg);
+            color: var(--text);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             position: relative;
+            padding: 24px;
         }
 
-        /* Animated background glowing blobs */
+        /* Background blobs */
         .blob {
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.4), rgba(147, 51, 234, 0.4));
-            filter: blur(80px);
+            width: min(420px, 80vw);
+            height: min(420px, 80vw);
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.45), rgba(147, 51, 234, 0.35));
+            filter: blur(90px);
             border-radius: 50%;
-            animation: float 10s ease-in-out infinite alternate;
+            animation: float 12s ease-in-out infinite alternate;
             z-index: -1;
+            pointer-events: none;
         }
 
         .blob:nth-child(2) {
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.3), rgba(79, 70, 229, 0.3));
-            animation-duration: 14s;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.35), rgba(79, 70, 229, 0.3));
+            animation-duration: 16s;
             animation-direction: alternate-reverse;
-            right: -100px;
-            bottom: -100px;
+            right: -80px;
+            bottom: -80px;
         }
 
         @keyframes float {
-            0% { transform: translate(0px, 0px) scale(1); }
-            100% { transform: translate(30px, 50px) scale(1.1); }
+            0%   { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 60px) scale(1.12); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .blob { animation: none; }
+            .card { animation: none; }
+            .btn  { transition: none; }
         }
 
         .card {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px;
+            background: var(--card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            padding: 40px 32px;
             border-radius: 24px;
             text-align: center;
-            max-width: 420px;
-            width: 90%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            animation: fadeIn 1s ease-out;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.7s ease-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: white;
+            box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.25);
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-            background: linear-gradient(to right, #ffffff, #9ca3af);
+            letter-spacing: -0.03em;
+            margin-bottom: 6px;
+            background: linear-gradient(to right, #fff, #c4b5fd);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        p {
-            color: #9ca3af;
+        .tagline {
+            color: var(--muted);
             font-size: 0.95rem;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
+            line-height: 1.45;
         }
 
         .links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             width: 100%;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text);
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 14px;
             font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .btn:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.22);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.2));
+            border-color: rgba(129, 140, 248, 0.35);
+        }
+
+        .btn.primary:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(168, 85, 247, 0.3));
+            border-color: rgba(129, 140, 248, 0.55);
+        }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            opacity: 0.9;
+            flex-shrink: 0;
+        }
+
+        footer {
+            margin-top: 28px;
+            font-size: 0.75rem;
+            color: #6b7280;
         }
     </style>
 </head>
 <body>
+    <div class="blob" aria-hidden="true"></div>
+    <div class="blob" aria-hidden="true"></div>
 
-    <div class="blob"></div>
-    <div class="blob"></div>
+    <main class="card">
+        <div class="avatar" aria-hidden="true">R</div>
+        <h1>Rohasu</h1>
+        <p class="tagline">Personal hub for projects, music & mobile apps</p>
 
-    <div class="card">
-        <h1>ROHASU</h1>
-        <p>Hub & Mobile Apps Portal</p>
-        
-        <div class="links">
-            <a href="https://github.com/Remmell" target="_blank" class="btn">GitHub Profile</a>
-            <a href="./app-ads.txt" class="btn">AdMob Verification</a>
-        </div>
-    </div>
+        <nav class="links" aria-label="Main links">
+            <a href="https://github.com/Remmell" target="_blank" rel="noopener noreferrer" class="btn primary">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub
+            </a>
 
+            <a href="https://remixx-brand.com" target="_blank" rel="noopener noreferrer" class="btn">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M9 18V5l12-2v13"/>
+                    <circle cx="6" cy="18" r="3"/>
+                    <circle cx="18" cy="16" r="3"/>
+                </svg>
+                Music & Brand
+            </a>
+
+            <a href="./app-ads.txt" class="btn">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                AdMob Verification
+            </a>
+        </nav>
+
+        <footer>© Rohasu</footer>
+    </main>
 </body>
 </html>
